@@ -1,0 +1,33 @@
+@mixin Zoom-motion($className, $keyframeName) {
+  @include make-motion($className, $keyframeName);
+  .#{$className}-enter-active, .#{$className}-appear {
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .#{$className}-leave-active {
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  }
+}
+
+@include Zoom-motion(zoomIn, bZoomTop);
+
+@keyframes bZoomTopIn {
+  0% {
+    opacity: 0;
+    transform: scaleY(0)
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1)
+  }
+}
+
+@keyframes bZoomTopOut {
+  0% {
+    opacity: 1;
+    transform: scaleY(1)
+  }
+  100% {
+    opacity: 0;
+    transform: scaleY(0)
+  }
+}

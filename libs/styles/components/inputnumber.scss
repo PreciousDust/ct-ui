@@ -1,0 +1,132 @@
+$inputNumber: $css-prefix + 'input-number';
+$icon: $css-prefix + 'icon';
+$inputNumbertWrapper:$inputNumber + '-wrapper';
+$inputNumbertIconArea:$inputNumber + '-icon-area';
+$inputNumbertIconAdd:$inputNumber + '-icon-add';
+$inputNumbertIconSubtract:$inputNumber + '-icon-subtract';
+
+$inputNumberPlaceHolder: $inputNumber + '-placeholder';
+
+$inputNumberDisabled: $inputNumber + '-disabled';
+$inputNumberUnDisabled: $inputNumber + '-un-disabled';
+$inputNumberReadonly: $inputNumber + '-readonly';
+$inputNumberUnReadonly: $inputNumber + '-un-readonly';
+
+$inputNumbertWrapperSmall: $inputNumbertWrapper + '-small';
+$inputNumbertWrapperNormal: $inputNumbertWrapper + '-normal';
+$inputNumbertWrapperLarge: $inputNumbertWrapper + '-large';
+
+$smallHeight: 24px;
+$normalHeight: 32px;
+$largeHeight: 36px;
+$testBorder: 1px solid #000;
+$inputPaddingHeight: 4px;
+$borderRadius:4px;
+
+@mixin iconStyle {
+  height:50%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+// inputNumber 的样式
+.#{$inputNumber} {
+  padding: $inputPaddingHeight 10px;
+  border: 1px solid #ccc;
+  border-radius: $borderRadius;
+  // 未禁用的input在hover、focus时，会有border
+  &.#{$inputNumberUnDisabled}.#{$inputNumberUnReadonly} {
+    &:focus, &:hover {
+      border: 1px solid #326de4;
+      outline: none;
+      box-shadow: 0px 0px 3px 0px #326de4;
+    }
+  }
+}
+
+// 外部盒子
+.#{$inputNumbertWrapper}{
+  position:relative;
+  .#{$icon}{
+    vertical-align: unset;
+    cursor:pointer;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+  }
+}
+
+.#{$inputNumberPlaceHolder}{
+  color:#515a6e;
+  font-weight: 400;
+}
+
+// disabled
+.#{$inputNumberDisabled} {
+  background-color: #eee;
+}
+
+
+// readonly
+.#{$inputNumberReadonly}:focus {
+  outline: none;
+}
+
+
+//size：small
+.#{$inputNumbertWrapperSmall} {
+  .#{$icon}{
+    vertical-align: super;
+  }
+  .#{$inputNumber},.#{$inputNumbertIconArea} {
+    height: $smallHeight;
+  }
+  .#{$inputNumber} {
+    line-height: $smallHeight - 2 * $inputPaddingHeight;
+    -webkit-line-height: $smallHeight;
+  }
+}
+
+// size ： normal
+.#{$inputNumbertWrapperNormal} {
+  .#{$inputNumber},.#{$inputNumbertIconArea} {
+    height: $normalHeight;
+  }
+  .#{$inputNumber} {
+    line-height: $normalHeight - 2 * $inputPaddingHeight;
+    -webkit-line-height: $normalHeight;
+  }
+}
+
+// size ：large
+.#{$inputNumbertWrapperLarge} {
+  .#{$inputNumber},.#{$inputNumbertIconArea}{
+    height: $largeHeight;
+  }
+  .#{$inputNumber} {
+    line-height: $largeHeight - 2 * $inputPaddingHeight;
+    -webkit-line-height: $largeHeight;
+  }
+}
+
+// 右侧按钮所在区域
+.#{$inputNumbertIconArea}{
+  position:absolute;
+  right:0;
+  top:0;
+  width:20px;
+  border-left:1px solid #ccc;
+}
+
+// 增加数值按钮
+.#{$inputNumbertIconAdd}{
+  @include iconStyle;
+  border-bottom:1px solid #ccc;
+
+}
+
+// 减少数值的按钮
+.#{$inputNumbertIconSubtract}{
+  @include iconStyle;
+}

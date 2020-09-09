@@ -1,0 +1,34 @@
+@mixin slide-motion($className, $keyframeName) {
+    @include make-motion($className, $keyframeName);
+    .#{$className}-enter-active, .#{$className}-appear {
+        opacity: 0;
+        animation-timing-function: $ease-in-out;
+    }
+    .#{$className}-leave-active {
+        animation-timing-function: $ease-in-out;
+    }
+}
+
+@include slide-motion(slide, slideToggle);
+
+@keyframes slideToggleIn {
+    0% {
+        opacity: 0;
+        transform: scaleY(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+@keyframes slideToggleOut {
+    0% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scaleY(0.8);
+    }
+}

@@ -1,0 +1,35 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, blockquote, th, td, p {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input {
+  vertical-align: middle;
+}
+
+textarea {
+  resize: none;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  border: none;
+}
+
+ul, ol, dl, dt, dd {
+  list-style-type: none;
+}
+
+a {
+  color: $Primary;
+  text-decoration: none;
+  outline: none;
+}
+
+a:hover {
+  color: $DarkPrimary;
+}

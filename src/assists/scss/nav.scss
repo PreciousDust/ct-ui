@@ -1,0 +1,33 @@
+@import "../../../libs/styles/common/constant";
+
+.nav-container {
+  margin-bottom: 10px;
+  .nav-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 8px 0;
+    padding-left: 15px;
+  }
+  .nav-items {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.8;
+  }
+  a {
+    display: block;
+    padding: 8px 24px;
+    position: relative;
+    line-height: 1.5;
+    cursor: pointer;
+    font-weight: normal;
+    color: $Content;
+    &:hover {
+      color: $Primary;
+      background: $Divider;
+    }
+  }
+  .active {
+    color: $Primary;
+    background: $Divider;
+  }
+}

@@ -1,0 +1,100 @@
+$css-prefix-notice: $css-prefix + "notice";
+$css-prefix-message: $css-prefix + "message";
+
+@mixin  type($type, $color) {
+    &-#{$type} {
+        &-icon {
+            position: absolute;
+            left: 12px;
+            top: 12px;
+            color: $color;
+        }
+    }
+}
+
+.#{$css-prefix-notice}-wrapper, .#{$css-prefix-message}-wrapper {
+    position: fixed;
+    width: 380px;
+    top: 20px;
+
+    .#{$css-prefix-notice}-enter {
+        opacity: 0;
+        animation: noticeIn $animation-time $ease-in-out running both;
+    }
+    
+    .#{$css-prefix-notice}-leave {
+        animation: noticeOut $animation-time $ease-in-out running both;
+    }
+
+    .#{$css-prefix-notice} {
+        position: relative;
+        margin-bottom: 20px;
+        padding: 12px 36px 12px 0;
+        color: $Title;
+        z-index: $zindex-notice;
+        border-radius: $border-radius-small;
+        background-color: $Background;
+        box-shadow: 0 0 6px tint($Border, 20%);
+        transition: all $transition-time $ease-in-out;
+
+        @include _color($Content);
+        @include type(success, $Success);
+        @include type(warning, $Warning);
+        @include type(error, $Error);
+        @include type(info, $Primary);
+        &-body {
+            width: 280px;   
+            max-height: 150px;
+            overflow: auto;
+
+            &-title {
+                font-size: 16px;
+                line-height: 1.5;
+                font-weight: 500;
+                width: 280px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            &-content {
+                font-size: 14px;
+                word-wrap: break-word;
+                line-height: 1.8;
+            }
+        }
+        
+    
+        &-close {
+            position: absolute;
+            right: 16px;
+            top: 16px;
+            cursor: pointer;
+        }
+    }
+}
+
+@keyframes noticeIn {
+    0% {
+        opacity: 0;
+        transform-origin: 0 0;
+        transform: translateY(0%);
+    }
+    100% {
+        opacity: 1;
+        transform-origin: 0 0;
+        transform: translateY(100%);
+    }
+}
+
+@keyframes noticeOut {
+    0% {
+        transform-origin: 0 0;
+        transform: translateX(0%);
+        opacity: 1;
+    }
+    100% {
+        transform-origin: 0 0;
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,67 @@
+
+html, body, .wrap {
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  width: 100%;
+  height: 80px;
+  background-color: #00c1de;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 80px;
+  text-align: center;
+}
+
+.content {
+  position: absolute;
+  top: 80px;
+  bottom: 0;
+  width: 100%;
+}
+
+.side, .content-wrap {
+  float: left;
+}
+
+.side {
+  /* 提升层级 */
+  position: relative;
+  width: 260px;
+  border-right: 1px solid #ccc;
+  margin-right: -1px;
+  height: 100%;
+}
+
+.content-wrap {
+  width: 100%;
+  margin-left: -260px;
+}
+
+.content-inner {
+  margin-left: 260px;
+  padding: 15px 15px 30px 15px;
+  border-left: 1px solid #ccc;
+}
+
+.b-color-box {
+  display: inline-block;
+  height: 80px;
+  width: 30%;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.b-color-box:not(:last-child) {
+  margin-right: 10px;
+}
+
+.b-color-body {
+  padding: 20px 0 0 15px;
+  color: white;
+}
+
+.b-color-desc {
+  opacity: 0.8;
+}

@@ -1,0 +1,172 @@
+$select: $css-prefix + 'select';
+$option: $select + '-option';
+$icon: $css-prefix + 'icon';
+
+$selectClearArea: $select + '-clear-area';
+$selectClearIcon: $select + '-clear-icon';
+
+$optionBox: $option + '-box';
+$optionSelected: $option + '-selected';
+$optionUnSelected: $option + '-un-selected';
+$optionDisabled: $option + '-disabled';
+$optionUnDisabled: $option + '-un-disabled';
+
+$wrapper: $select + '-wrapper';
+$suffixArea: $select + '-suffix-area';
+
+$wrapperSmall:$wrapper+'-small';
+$wrapperNormal:$wrapper+'-normal';
+$wrapperLarge:$wrapper+'-large';
+
+$disabled: $select + '-disabled';
+$unDisabled: $select + '-un-disabled';
+$readonly: $select + '-readonly';
+$unReadonly: $select + '-un-readonly';
+
+$PaddingHeight:4px;
+$borderRadius:4px;
+$smallHeight: 24px;
+$normalHeight: 32px;
+$largeHeight: 36px;
+$suffixDistance: 4px;
+$iconAreaWidth: 20px;
+$prefixSuffixPadding: $suffixDistance + $iconAreaWidth + 1px;
+
+@mixin changeToEllipsis{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+// select的样式
+.#{$select}{
+  padding: $PaddingHeight 10px;
+  border: 1px solid #ccc;
+  border-radius: $borderRadius;
+  height:100%;
+
+  padding-right: $prefixSuffixPadding;
+  // 未禁用的select在hover、focus时，会有border
+  &.#{$unDisabled}.#{$unReadonly} {
+    &:focus, &:hover {
+      border: 1px solid #326de4;
+      outline: none;
+      box-shadow: 0px 0px 3px 0px #326de4;
+    }
+  }
+
+  @include changeToEllipsis;
+}
+
+// select-wrapper
+.#{$wrapper}{
+  position: relative;
+  display: inline-block;
+  .#{$icon}{
+    vertical-align:unset;
+  }
+  &:hover .#{$selectClearIcon} {
+    display: block;
+  }
+}
+
+// disabled
+.#{$disabled} {
+  background-color: #eee;
+}
+
+// readonly
+.#{$readonly}:focus {
+  outline: none;
+}
+
+// input后缀区域
+.#{$suffixArea} {
+  right: $suffixDistance;
+  position:absolute;
+  top:0;
+  width:20px;
+  height:100%;
+  vertical-align: middle;
+  text-align: center;
+}
+
+
+//size：small
+.#{$wrapperSmall} {
+  height: $smallHeight;
+  .#{$select} {
+    line-height: $smallHeight - 2 * $PaddingHeight;
+    -webkit-line-height: $smallHeight;
+  }
+   .#{$suffixArea},.#{$selectClearArea} {
+    padding: 5px 2px;
+  }
+}
+
+// size ： normal
+.#{$wrapperNormal} {
+  height: $normalHeight;
+  .#{$select} {
+    line-height: $normalHeight - 2 * $PaddingHeight;
+    -webkit-line-height: $normalHeight;
+  }
+  .#{$suffixArea},.#{$selectClearArea} {
+    padding: 9px 2px;
+  }
+}
+
+// size ：large
+.#{$wrapperLarge} {
+  height: $largeHeight;
+  .#{$select} {
+    line-height: $largeHeight - 2 * $PaddingHeight;
+    -webkit-line-height: $largeHeight;
+  }
+   .#{$suffixArea},.#{$selectClearArea} {
+    padding: 11px 2px;
+  }
+}
+
+/*** option start ***/
+.#{$option}{
+  width:100%;
+  color: #495060;
+  line-height: normal;
+  padding:7px 16px;
+  @include changeToEllipsis;
+}
+
+.#{$optionBox}{
+
+}
+
+.#{$optionSelected}{
+  background-color: #0079CC;
+  color: #fff;
+}
+
+.#{$optionUnSelected}{
+  &:hover{
+    background: #eeeeee;
+  }
+}
+
+.#{$optionDisabled}{
+  color: #bbb;
+  cursor: not-allowed;
+}
+/*** option end ***/
+
+.#{$selectClearArea}{
+  right: 23px;
+  z-index: 10;
+  width: $iconAreaWidth;
+  position: absolute;
+  top: 0;
+  height:100%;
+}
+
+.#{$selectClearIcon}{
+  display: none;
+}

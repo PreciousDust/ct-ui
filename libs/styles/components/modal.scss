@@ -1,0 +1,61 @@
+$border: $Border;
+$css-prefix: 'b-';
+$modal: $css-prefix+'modal';
+
+//modal
+.#{$modal} {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  z-index: 1000;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, .7);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#B2000000, endColorstr=#B2000000);
+
+  &-main {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    line-height: 100%;
+    z-index: 1002;
+    background: #fff;
+    margin-bottom: 50px;
+    border-radius: 4px;
+  }
+
+  &-title {
+    user-select: none;
+    cursor: pointer;
+    padding: 20px;
+    font-size: 16px;
+    border-bottom: 1px solid $border;
+  }
+
+  &-close {
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+  }
+
+  &-content {
+    padding: 20px 20px 0 20px;
+    z-index: 999;
+  }
+
+  &-footer {
+    text-align: center;
+    padding: 20px 30px 30px 30px;
+  }
+}

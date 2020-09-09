@@ -1,0 +1,41 @@
+@import "../common/prefix";
+
+.#{$css-prefix}collapse {
+  border-radius: 3px;
+  border: 1px solid $Border;
+  @include _background($Background);
+  &-item {
+    &-header {
+      cursor: pointer;
+      height: 45px;
+      line-height: 45px;
+      padding-left: 16px;
+    }
+    &-content {
+      color: #515a6e;
+      padding: 16px;
+      background: #fff;
+    }
+    &-arrow {
+      margin-top: 15px;
+      margin-right: 5px;
+      &-right {
+        float: right;
+        margin-right: 10px;
+      }
+      &-left {
+        float: left;
+      }
+    }
+  }
+  &-simple {
+    & .#{$css-prefix}collapse-item {
+      border-bottom: 1px solid $Border;;
+    }
+    border-left: none;
+    border-right: none;
+    background: #fff;
+  }
+}
+
+

@@ -1,0 +1,70 @@
+$css-prefix-checkbox: $css-prefix+'checkbox';
+
+.#{$css-prefix-checkbox} {
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  cursor: pointer;
+  line-height: 1;
+  position: relative;
+  box-sizing: border-box;
+  width: 14px;
+  height: 14px;
+
+  &-warpper {
+    cursor: pointer;
+    font-size: 12px;
+    display: inline-block;
+  }
+
+  &-inner {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background: url("../../libs/image/ctUi-css-sprites.png") transparent no-repeat scroll 0 -15px;
+
+    &:hover {
+      background: url("../../libs/image/ctUi-css-sprites.png") transparent no-repeat scroll -30px -15px;
+    }
+  }
+
+  &-label {
+    vertical-align: middle;
+    line-height: 1;
+  }
+
+  &-checked &-inner {
+    background: url("../../libs/image/ctUi-css-sprites.png") transparent no-repeat scroll -15px -15px;
+  }
+
+  &-indeterminate &-inner {
+    background: url("../../libs/image/ctUi-css-sprites.png") transparent no-repeat scroll -75px -15px;
+  }
+
+  $prefix: &;
+
+  &-checked#{$prefix}-disabled &-inner {
+    background: url("../../libs/image/ctUi-css-sprites.png") transparent no-repeat scroll -60px -15px;
+  }
+
+  &-disabled &-inner {
+    background: url("../../libs/image/ctUi-css-sprites.png") transparent no-repeat scroll -45px -15px;
+  }
+
+  &-input {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    inner: 0;
+    right: 0;
+    z-index: 1;
+    cursor: pointer;
+    background: #fff;
+    opacity: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+
+    &[disabled] {
+      cursor: not-allowed;
+    }
+  }
+}

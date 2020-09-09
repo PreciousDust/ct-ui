@@ -1,0 +1,13 @@
+$drop:$css-prefix + 'drop';
+
+.#{$drop}{
+  background: #fff;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  position:absolute;
+  z-index: 10;
+  width: 100%;
+  margin: 3px;
+  box-sizing: border-box;
+  border:1px solid #eee;
+}

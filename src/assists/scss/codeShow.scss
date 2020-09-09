@@ -1,0 +1,110 @@
+@import "../../../libs/styles/common/constant";
+
+.markdown-loader-wrapper {
+  h2, h3 {
+    margin: 10px 0;
+  }
+  .h1 {
+    margin-bottom: 10px;
+    border-bottom: 1px solid $Border;
+    padding-bottom: 10px;
+  }
+  code {
+    display: inline-block;
+    background: $Background;
+    font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
+    margin: 0 3px;
+    padding: 1px 5px;
+    border-radius: 3px;
+    border: 1px solid $Border;
+  }
+  .html {
+    border: none;
+  }
+  .ul, .li {
+    list-style-type: circle;
+  }
+  .ul {
+    padding-left: 30px;
+  }
+  .test-table-columns {
+    background: cornflowerblue;
+  }
+
+  td.test-table-cell {
+    background: red;
+  }
+
+  .test-table-row td {
+    background: greenyellow;
+  }
+}
+
+.code-warp {
+  margin: 10px 0;
+  border: 1px solid $Border;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .3);
+}
+
+.code-title {
+  background-color: $Divider;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+.code-show {
+  overflow: hidden;
+  transition: max-height 5s;
+  background-color: $Background;
+  pre {
+    padding: 10px;
+  }
+}
+
+.code-content {
+  padding: 10px;
+}
+
+.table {
+  width: 100%;
+  border: 1px solid red;
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  thead {
+    background: $Sub;
+    color: white;
+  }
+  th, td {
+    border: 1px solid $Border;
+    padding: 8px 16px;
+    text-align: left;
+  }
+}
+
+.example-slot {
+  text-align: center;
+  background: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.icon-list li {
+  font-size: 14px;
+  display: inline-block;
+  width: 200px;
+  height: 120px;
+  text-align: center;
+  list-style: none;
+}
+
+.icon-list .icon {
+  line-height: 50px;
+  margin: 5px 0;
+}
+
+.img {
+  width: 100%;
+}

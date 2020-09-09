@@ -1,0 +1,77 @@
+//  Font size
+$font-size-small: 12px;
+$font-size-base: 14px;
+$font-size-large: 16px;
+
+// Zindex
+$zindex-before: 1;
+$zindex-after: 1;
+$zindex-table-border: 5;
+$zindex-menu: 15;
+$zindex-fixed: 20;
+$datepicker-zindex: 1000;
+$zindex-notice: 1200;
+
+// Border
+$border-radius-base: 6px;
+$border-radius-small: 4px;
+
+// Animation
+$animation-time: .3s;
+$transition-time: .2s;
+$ease-in-out: ease-in-out;
+
+// color
+// 主色调
+$LightPrimary: #52b7fc; // hover
+$Primary: #0079CC; // main
+$DarkPrimary: #00558f; // active
+$white: #fff; // active
+// 辅助色
+$Info: #0079CC; // info
+$Success: #1fca74; // success
+$Warning: #ff8f00; // warning
+$Error: #f44336; // error
+$Badge: #ff5722; // badge
+// 中性色
+$Background: #f8f8f9; // background
+$Sub: #80848f; // sub
+$Disabled: #e8e8e8; // disabled
+$Border: #dddee1; // border
+$Divider: #e9eaec; // divider
+$Title: #1c2438; // title
+$Content: #495060; // content
+$SubContent: #9ea7b4; // subContent
+$DisContent: #bbbbbb; //  disContent
+$LinkContent: #0079cc; // linkContent
+
+// button
+$border-color-base      : #dcdee2;
+$border-color-split     : #e8eaec; 
+
+$text-color             : #515a6e;
+$btn-default-color      : $text-color;
+$btn-ghost-color        : $text-color;
+$btn-primary-color      : #fff;
+$btn-primary-bg         : $Primary;
+$btn-default-bg         : #fff;
+$btn-default-border     : $border-color-base;
+$line-height-base       : 1.5;
+$background-color-base  : #f7f7f7;
+$btn-disable-color      : #c5c8ce;
+$btn-ghost-bg           : #fff;
+
+
+$btn-disable-bg         : $background-color-base;
+$btn-disable-border     : $border-color-base;
+$btn-font-weight        : normal;
+
+$btn-padding-base       : 5px 15px 6px;
+
+$btn-font-size          : 12px;
+$btn-border-radius      : 4px;
+$btn-border-radius-small: 3px;
+$cursor-disabled        : not-allowed;
+$btn-padding-large      : 6px 15px 6px 15px;
+$btn-font-size-large    : 14px;
+$btn-padding-small      : 1px 7px 2px;

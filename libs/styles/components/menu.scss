@@ -1,0 +1,120 @@
+$prefix-menu: $css-prefix + 'menu';
+.#{$prefix-menu} {
+  display: block;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  list-style: none;
+  color: $Content;
+  font-size: $font-size-base;
+  position: relative;
+  z-index: $zindex-menu;
+  &-horizontal {
+    height: 60px;
+    line-height: 60px;
+    .#{$prefix-menu} {
+      &-submenu, &-item {
+        float: left;
+        padding: 0 20px;
+        position: relative;
+        cursor: pointer;
+        z-index: 3;
+        transition: all .2s ease-in-out;
+      }
+      &-item {
+        height: auto;
+        line-height: normal;
+        border-bottom: 0;
+        float: none;
+        padding: 7px 16px 8px;
+        font-size: 12px;
+        margin-left: unset;
+      }
+      &-submenu {
+        &-drop-list {
+          z-index: 100;
+          max-height: none;
+          overflow: auto;
+          margin: 5px 0;
+          padding: 5px 0;
+          background-color: #fff;
+          box-sizing: border-box;
+          position: absolute;
+          border-radius: 4px;
+          box-shadow: 0 0 6px 0 rgba(73, 80, 96, .2);
+        }
+      }
+    }
+  }
+  &-vertical {
+    .#{$prefix-menu} {
+      &-item, &-submenu-title {
+        padding: 14px 24px;
+        position: relative;
+        cursor: pointer;
+        z-index: 1;
+        transition: all .2s ease-in-out;
+      }
+      &-submenu {
+        &-title-icon {
+          position: absolute;
+          top: 50%;
+          bottom: 50%;
+          right: 24px;
+          margin-top: -6px;
+        }
+      }
+    }
+  }
+  @mixin themeColor($type, $hoverColor,$activeFont,$activeBg,$themeBg,$themeFont) {
+    &-#{$type} {
+      background: $themeBg;
+      color: $themeFont;
+      .#{$prefix-menu} {
+        &-submenu {
+          &-title {
+            &:hover {
+              color: $hoverColor;
+            }
+          }
+        }
+        &-item {
+          &-disabled {
+            cursor: not-allowed;
+            color: $Disabled !important;
+          }
+          &:hover {
+            color: $hoverColor;
+          }
+          &-active {
+            color: $activeFont;
+            background: $activeBg;
+          }
+        }
+      }
+    }
+  }
+  @include themeColor(light, $LightPrimary, $LightPrimary, lighten($LightPrimary, 30%), #fff, $Content);
+  @include themeColor(dark, #fff, #fff, $LightPrimary, $Content, $Divider);
+
+  &-item {
+    display: block;
+    outline: none;
+    list-style: none;
+    position: relative;
+    font-size: $font-size-base;
+    cursor: pointer;
+    transition: all $transition-time $ease-in-out;
+  }
+
+  &-submenu {
+    &-title {
+      i {
+        margin-right: 8px;
+      }
+      &-icon {
+        font-size: 12px;
+      }
+    }
+  }
+}

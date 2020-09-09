@@ -1,0 +1,281 @@
+$input: $css-prefix + 'input';
+$icon: $css-prefix + 'icon';
+$inputPlaceHolder: $input + '-placeholder';
+$inputWrapper: $input + '-wrapper-ct';
+$inputLabelNoFixed: $input + '-label-no-fixed';
+
+$inputWrapperSmall: $inputWrapper + '-small';
+$inputWrapperNormal: $inputWrapper + '-normal';
+$inputWrapperLarge: $inputWrapper + '-large';
+$inputWrapperWithLabelNotFixed: $inputWrapper + '-label-not-fixed';
+
+$inputDisabled: $input + '-disabled';
+$inputUnDisabled: $input + '-un-disabled';
+$inputReadonly: $input + '-readonly';
+$inputUnReadonly: $input + '-un-readonly';
+
+$inputClearIcon: $input + '-clear-icon';
+$inputIconArea: $input + '-icon-area';
+$inputPrefix: $input + '-prefix';
+$inputPrefixArea: $inputPrefix + '-area';
+$inputSuffix: $input + '-suffix';
+$inputSuffixArea: $inputSuffix + '-area';
+
+$inputPrepend: $input + '-prepend';
+$inputAppend: $input + '-append';
+
+$inputWithPrefix: $input + '-with-prefix';
+$inputNotWithPrefix: $input + '-not-with-prefix';
+$inputWithSuffix: $input + '-with-suffix';
+$inputNotWithSuffix: $input + '-not-with-suffix';
+$inputWithPrepend: $input + '-with-prepend';
+$inputNotWithPrepend: $input + '-not-with-prepend';
+$inputWithAppend: $input + '-with-append';
+$inputNotWithAppend: $input + '-not-with-append';
+$inputSearch: $input + '-search';
+$inputNotSearch: $input + '-not-search';
+$inputPassword: $input + '-password';
+$inputNotPassword: $input + '-not-password';
+$inputShowPassword: $input + '-show-password';
+$inputNotShowPassword: $input + '-not-show-password';
+$inputOneIcon: $input + '-one-icon';
+$inputNotOneIcon: $input + '-not-one-icon';
+$inputShowClearIcon: $input + '-show-clear-icon';
+$inputNotShowClearIcon: $input + '-not-show-clear-icon';
+
+$smallHeight: 24px;
+$normalHeight: 32px;
+$largeHeight: 36px;
+$clearIconWidth: 15px;
+$testBorder: 0px solid #000;
+$inputPaddingHeight: 4px;
+$prefixSuffixDistance: 4px;
+$iconAreaWidth: 20px;
+$prefixSuffixPadding: $prefixSuffixDistance + $iconAreaWidth + 1px;
+$borderRadius:4px;
+
+// 清除input在ie11上的自带的叉号
+input::-ms-clear{display:none;}
+input::-ms-reveal{display:none;}
+
+// 存放 icon 的区域
+@mixin iconArea {
+  width: $iconAreaWidth;
+  position: absolute;
+  top: 0;
+  //border: $testBorder;
+}
+
+// icon 的样式
+@mixin iconStyle {
+  width: $clearIconWidth;
+  height: $clearIconWidth;
+  border: $testBorder;
+}
+
+@mixin prependAndAppend{
+  border: 1px solid #ccc;
+
+  padding: 4px 7px;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: 1;
+  color: #515a6e;
+  text-align: center;
+  background-color: #f8f8f9;
+
+  width: 1px;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+// input 的样式
+.#{$input} {
+  padding: $inputPaddingHeight 10px;
+  border: 1px solid #ccc;
+  border-radius: $borderRadius;
+  // 未禁用的input在hover、focus时，会有border
+  &.#{$inputUnDisabled}.#{$inputUnReadonly} {
+    &:focus, &:hover {
+      border: 1px solid #326de4;
+      outline: none;
+      box-shadow: 0px 0px 3px 0px #326de4;
+    }
+  }
+}
+
+// input 的placeholder的字体颜色
+.#{$inputPlaceHolder}{
+  color:#515a6e;
+  font-weight: 400;
+}
+
+// input 的icon区域，目前的清除按钮
+.#{$inputIconArea} {
+  right: 4px;
+  z-index: 10;
+  @include iconArea;
+}
+
+// input 的清除按钮
+.#{$inputClearIcon} {
+  @include iconStyle;
+  display: none;
+}
+
+// input的外部框
+.#{$inputWrapper} {
+  position: relative;
+  display: inline-block;
+  &:hover .#{$inputClearIcon} {
+    display: block;
+  }
+  &.#{$inputOneIcon}.#{$inputShowClearIcon}:hover .#{$inputSuffixArea}{
+    display:none;
+  }
+  .#{$icon}{
+    vertical-align: unset;
+    cursor:pointer;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+  }
+}
+
+// input前缀区域
+.#{$inputPrefixArea} {
+  left: $prefixSuffixDistance;
+  @include iconArea;
+}
+
+// input前后缀图标的框高宽
+.#{$inputPrefix},.#{$inputSuffix} {
+  @include iconStyle;
+}
+
+//input具有前缀区域时的input
+.#{$inputWithPrefix} .#{$input} {
+  padding-left: $prefixSuffixPadding;
+}
+
+// input后缀区域
+.#{$inputSuffixArea} {
+  right: $prefixSuffixDistance;
+  @include iconArea;
+}
+
+// input具有后缀区域时的input，icon区域左移
+.#{$inputWithSuffix}.#{$inputNotOneIcon}  {
+  .#{$input} {
+    padding-right: $prefixSuffixPadding;
+  }
+  .#{$inputIconArea} {
+    right: 23px;
+  }
+}
+
+// disabled
+.#{$inputDisabled} {
+  background-color: #eee;
+}
+
+// readonly
+.#{$inputReadonly}:focus {
+  outline: none;
+}
+
+//size：small
+.#{$inputWrapperSmall} {
+  .#{$input}, .#{$inputIconArea}, .#{$inputPrefixArea}, .#{$inputSuffixArea} {
+    height: $smallHeight;
+  }
+  .#{$input} {
+    line-height: $smallHeight - 2 * $inputPaddingHeight;
+    -webkit-line-height: $smallHeight;
+  }
+  .#{$inputIconArea}, .#{$inputPrefixArea}, .#{$inputSuffixArea} {
+    padding: 5px 2px;
+  }
+}
+
+// size ： normal
+.#{$inputWrapperNormal} {
+  .#{$input}, .#{$inputIconArea}, .#{$inputPrefixArea}, .#{$inputSuffixArea} {
+    height: $normalHeight;
+  }
+  .#{$input} {
+    line-height: $normalHeight - 2 * $inputPaddingHeight;
+    -webkit-line-height: $normalHeight;
+  }
+  .#{$inputIconArea}, .#{$inputPrefixArea}, .#{$inputSuffixArea} {
+    padding: 9px 2px;
+  }
+}
+
+// size ：large
+.#{$inputWrapperLarge} {
+  .#{$input}, .#{$inputIconArea}, .#{$inputPrefixArea}, .#{$inputSuffixArea} {
+    height: $largeHeight;
+  }
+  .#{$input} {
+    line-height: $largeHeight - 2 * $inputPaddingHeight;
+    -webkit-line-height: $largeHeight;
+  }
+  .#{$inputIconArea}, .#{$inputPrefixArea}, .#{$inputSuffixArea} {
+    padding: 11px 2px;
+  }
+}
+
+/***** 前后缀标签start ****/
+.#{$inputPrepend} ,.#{$inputWithPrepend} > .#{$input},
+.#{$inputAppend} ,.#{$inputWithAppend} > .#{$input} {
+  display: table-cell;
+}
+
+.#{$inputWrapper}.#{$inputWithPrepend},
+.#{$inputWrapper}.#{$inputWithAppend} {
+  display: table;
+}
+
+.#{$inputPrepend}{
+  @include prependAndAppend;
+  border-right:0px;
+  border-bottom-left-radius: $borderRadius;
+  border-top-left-radius: $borderRadius;
+}
+
+.#{$inputAppend} {
+  @include prependAndAppend;
+  border-left:0px;
+  border-bottom-right-radius: $borderRadius;
+  border-top-right-radius: $borderRadius;
+}
+.#{$inputWithPrepend} > .#{$input}{
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+.#{$inputWithAppend} > .#{$input}{
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+/***** 前后缀标签end ****/
+
+.#{$inputLabelNoFixed}{
+  //display: table-cell;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.#{$inputWrapperWithLabelNotFixed}{
+  display: table-cell;
+}
+
+// demo中的css
+.inputDemoCss {
+  width: 210px;
+  display: inline-block;
+  margin-right: 15px;
+  vertical-align: bottom;
+}

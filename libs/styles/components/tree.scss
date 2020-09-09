@@ -1,0 +1,55 @@
+$css-prefix-tree: $css-prefix + 'tree';
+
+.#{$css-prefix-tree} {
+  font-size: 14px;
+  position: relative;
+  cursor: default;
+  background: #fff;
+  @include _color($Content);
+  & &-children {
+    margin: 0;
+    padding: 0 0 0 10px;
+    transition: all .2s ease-in-out;
+    li {
+      list-style: none;
+      margin: 6px 0;
+      padding: 0;
+      white-space: nowrap;
+      outline: 0;
+    }
+  }
+  .icon {
+    font-size: 12px;
+  }
+  &-arrow {
+    cursor: pointer;
+    width: 12px;
+    text-align: center;
+    display: inline-block;
+    @include _color($Sub);
+  }
+  &-name {
+    display: inline-block;
+    margin: 0;
+    padding: 0 4px;
+    border-radius: 3px;
+    cursor: pointer;
+    vertical-align: middle;
+    transition: all .2s ease-in-out;
+    &:hover {
+      @include _background(transparentize($Primary, 0.9));
+    }
+  }
+  &-name-selected {
+    @include _color($Primary);
+    @include _background(transparentize($Primary, 0.9));
+  }
+  &-loop {
+    @include _loop;
+  }
+  &-tip {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 5px;
+  }
+}

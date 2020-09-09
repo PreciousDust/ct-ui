@@ -1,0 +1,324 @@
+$css-prefix-radio: $css-prefix+'radio';
+$radio-group: $css-prefix-radio+'-group';
+$radio-inner: $css-prefix-radio+'-inner';
+$radio-group-button: $radio-group+'-button';
+
+$font-size-base: 14px;
+$font-size-small: 12px;
+$cursor-disabled: not-allowed;
+$transition-time: .2s;
+$btn-circle-size: 32px;
+$btn-circle-size-large: 36px;
+$btn-circle-size-small: 24px;
+$btn-border-radius: 4px;
+$btn-border-radius-small: 3px;
+
+$LightPrimary: #52b7fc; // hover
+$Primary: #0079CC; // main
+$DarkPrimary: #00558f; // active
+$white: #fff; // active
+// 辅助色
+$Info: #0079CC; // info
+$Success: #1fca74; // success
+$Warning: #ff8f00; // warning
+$Error: #f44336; // error
+$Badge: #ff5722; // badge
+// 中性色
+$Background: #f8f8f9; // background
+$Sub: #80848f; // sub
+$Disabled: #e8e8e8; // disabled
+$Border: #dddee1; // border
+$Divider: #e9eaec; // divider
+$Title: #1c2438; // title
+$Content: #495060; // content
+$SubContent: #9ea7b4; // subContent
+$DisContent: #bbbbbb; //  disContent
+$LinkContent: #0079cc; // linkContent
+$animation-time         : .3s;
+$transition-time        : .2s;
+$ease-in-out            : ease-in-out;
+
+.#{$css-prefix-radio}-focus {
+  box-shadow: 0 0 0 2px rgba(45, 140, 240, 0.2);
+  z-index: 1;
+}
+
+.#{$radio-group} {
+  display: inline-block;
+  font-size: $font-size-small;
+  vertical-align: middle;
+
+  //outline: none;
+  &-vertical {
+    .#{$css-prefix-radio}-wrapper {
+      display: block;
+      height: 30px;
+      line-height: 30px;
+    }
+  }
+}
+
+// 普通状态 - Normal state
+.#{$css-prefix-radio}-wrapper {
+  font-size: $font-size-small;
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+  margin-right: 8px;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  &-disabled {
+    cursor: $cursor-disabled;
+  }
+}
+
+.#{$css-prefix-radio} {
+  display: inline-block;
+  margin-right: 4px;
+  white-space: nowrap;
+  //outline: none;
+  position: relative;
+  line-height: 1;
+  vertical-align: middle;
+  cursor: pointer;
+
+  &-inner {
+    background: url("../../libs/image/ctUi-css-sprites.png") transparent no-repeat scroll 0 0;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+  }
+
+  &-large {
+    font-size: $font-size-base;
+
+    & .#{$radio-inner} {
+      width: 16px;
+      height: 16px;
+    }
+
+    &.#{$css-prefix-radio}-wrapper,
+    & .#{$css-prefix-radio}-wrapper {
+      font-size: $font-size-base;
+    }
+  }
+
+  &-small {
+    & .#{$radio-inner} {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  &-input {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    outline: 0;
+    background:#fff;
+    opacity: 0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+    cursor: pointer;
+  }
+}
+
+// 选中状态 - Selected state
+.#{$css-prefix-radio}-checked {
+  .#{$radio-inner} {
+    background: url("../../libs/image/ctUi-css-sprites.png") transparent no-repeat scroll -15px 0px;
+  }
+}
+.#{$css-prefix-radio}-checked.#{$css-prefix-radio}-disabled {
+  .#{$radio-inner} {
+    background: url("../../libs/image/ctUi-css-sprites.png") transparent no-repeat scroll -60px 0px;
+  }
+}
+.#{$css-prefix-radio}-disabled {
+  cursor: $cursor-disabled;
+
+  .#{$css-prefix-radio}-input {
+    cursor: $cursor-disabled;
+  }
+
+  .#{$radio-inner} {
+    background: url("../../libs/image/ctUi-css-sprites.png") transparent no-repeat scroll -45px 0px;
+  }
+}
+
+span.#{$css-prefix-radio}+* {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+// 按钮样式 - Button style
+// .#{$radio-group-button} {
+//   font-size: 0;
+//   -webkit-text-size-adjust: none;
+
+//   .#{$css-prefix-radio} {
+//     width: 0;
+//     margin-right: 0;
+//   }
+
+//   .#{$css-prefix-radio}-wrapper {
+//     display: inline-block;
+//     height: $btn-circle-size;
+//     line-height: $btn-circle-size - 2px;
+//     margin: 0;
+//     padding: 0 16px - 1px;
+//     font-size: $font-size-small;
+//     transition: all $transition-time ease-in-out;
+//     cursor: pointer;
+//     border: 1px solid $Border;
+//     border-left: 0;
+//     background: #fff;
+//     position: relative;
+
+//     &>span {
+//       margin-left: 0;
+//     }
+
+//     &:before,
+//     &:after {
+//       content: '';
+//       display: block;
+//       position: absolute;
+//       width: 1px;
+//       height: 100%;
+//       left: -1px;
+//       top: 0;
+//       background: $Border;
+//       //visibility: hidden;
+//       transition: all $transition-time ease-in-out;
+//     }
+
+//     &:after {
+//       height: $btn-circle-size + 4px;
+//       left: -1px;
+//       top: -3px;
+//       background: $Primary;
+//       opacity: 0;
+//     }
+
+//     &:first-child {
+//       border-radius: $btn-border-radius 0 0 $btn-border-radius;
+//       border-left: 1px solid $Border;
+
+//       &:before,
+//       &:after {
+//         display: none;
+//       }
+//     }
+
+//     &:last-child {
+//       border-radius: 0 $btn-border-radius $btn-border-radius 0;
+//     }
+
+//     &:first-child:last-child {
+//       border-radius: $btn-border-radius;
+//     }
+
+//     &:hover {
+//       position: relative;
+//       color: $Primary;
+
+//       & .#{$css-prefix-radio} {
+//         background-color: black;
+//       }
+//     }
+
+//     .#{$css-prefix-radio}-inner,
+//     input {
+//       opacity: 0;
+//       width: 0;
+//       height: 0;
+//     }
+
+//     &-checked {
+//       background: #fff;
+//       border-color: $Primary;
+//       color: $Primary;
+//       box-shadow: -1px 0 0 0 $Primary;
+//       z-index: 1;
+
+//       &:before {
+//         background: $Primary;
+//         opacity: 0.1;
+//       }
+
+//       &.#{$css-prefix-radio}-focus {
+//         box-shadow: -1px 0 0 0 $Primary, 0 0 0 2px rgba(45, 140, 240, 0.2);
+//         transition: all $transition-time ease-in-out;
+
+//         &:after {
+//           left: -3px;
+//           top: -3px;
+//           opacity: 1;
+//           background: rgba(45, 140, 240, 0.2);
+//         }
+
+//         &:first-child {
+//           box-shadow: 0 0 0 2px rgba(45, 140, 240, 0.2);
+//         }
+//       }
+//     }
+
+//     &-disabled {
+//       border-color: $Border;
+//       background-color: $Background;
+//       cursor: $cursor-disabled;
+//       color: $DisContent;
+
+//       &:hover {
+//         border-color: $Border;
+//         background-color: $Background;
+//         color: $DisContent;
+//       }
+
+//       &:first-child {
+//         border-left-color: $Border;
+//       }
+//     }
+
+//     &-disabled.#{$css-prefix-radio}-wrapper-checked {
+//       color: #fff;
+//       background-color: $Disabled;
+//       border-color: $Border;
+//       box-shadow: none !important;
+//     }
+//   }
+// }
+
+// .#{$radio-group-button}.#{$radio-group}-large .#{$css-prefix-radio}-wrapper {
+//   height: $btn-circle-size-large;
+//   line-height: $btn-circle-size-large - 2px;
+//   font-size: $font-size-base;
+
+//   &:after {
+//     height: $btn-circle-size-large + 4px;
+//   }
+// }
+
+// .#{$radio-group-button}.#{$radio-group}-small .#{$css-prefix-radio}-wrapper {
+//   height: $btn-circle-size-small;
+//   line-height: $btn-circle-size-small - 2px;
+//   padding: 0 12px;
+//   font-size: $font-size-small;
+
+//   &:after {
+//     height: $btn-circle-size-small + 4px;
+//   }
+
+//   &:first-child {
+//     border-radius: $btn-border-radius-small 0 0 $btn-border-radius-small;
+//   }
+
+//   &:last-child {
+//     border-radius: 0 $btn-border-radius-small $btn-border-radius-small 0;
+//   }
+// }
